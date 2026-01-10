@@ -1,0 +1,72 @@
+/run/initialize
+
+
+/gps/pos/type Point
+/gps/pos/centre 0 0 -5 mm
+
+/gps/ang/type iso
+
+/gps/ang/mintheta 150 deg
+/gps/ang/maxtheta 180 deg
+
+/gps/particle gamma
+/gps/ene/type Arb
+/gps/hist/type arb
+ 
+/gps/hist/point 0.001 0.03997
+/gps/hist/point 0.002 0.03897  
+/gps/hist/point 0.015 0.02671
+/gps/hist/point 0.016 0.02583
+/gps/hist/point 0.017 0.02495
+/gps/hist/point 0.018 0.02409
+/gps/hist/point 0.019 0.02323
+/gps/hist/point 0.020 0.02239
+/gps/hist/point 0.021 0.02155
+/gps/hist/point 0.022 0.02073
+/gps/hist/point 0.023 0.01992
+/gps/hist/point 0.024 0.01912
+/gps/hist/point 0.025 0.01833
+/gps/hist/point 0.026 0.01755
+/gps/hist/point 0.027 0.01679
+/gps/hist/point 0.028 0.01604
+/gps/hist/point 0.029 0.01530
+/gps/hist/point 0.030 0.01458
+/gps/hist/point 0.031 0.01387
+/gps/hist/point 0.032 0.013182
+/gps/hist/point 0.036 0.01054
+/gps/hist/point 0.037 0.009916
+/gps/hist/point 0.038 0.009310
+/gps/hist/point 0.039 0.008721
+/gps/hist/point 0.040 0.008147
+/gps/hist/point 0.041 0.007591
+/gps/hist/point 0.042 0.007051
+/gps/hist/point 0.043 0.006529
+/gps/hist/point 0.044 0.006025
+/gps/hist/point 0.045 0.005538
+/gps/hist/point 0.046 0.005070
+/gps/hist/point 0.047 0.004620
+/gps/hist/point 0.048 0.004189
+/gps/hist/point 0.049 0.003777
+/gps/hist/point 0.050 0.003384
+/gps/hist/point 0.051 0.003012
+/gps/hist/point 0.052 0.002659
+/gps/hist/point 0.053 0.002327
+/gps/hist/point 0.054 0.002016
+/gps/hist/point 0.055 0.001725
+/gps/hist/point 0.056 0.001456
+/gps/hist/point 0.057 0.001209
+/gps/hist/point 0.058 0.0009836
+/gps/hist/point 0.059 0.0007807
+/gps/hist/point 0.060 0.0006004
+/gps/hist/point 0.061 0.0004431
+/gps/hist/point 0.062 0.0003091
+/gps/hist/point 0.063 0.0001987
+/gps/hist/point 0.064 0.0001123
+/gps/hist/point 0.065 0.00005011
+/gps/hist/point 0.066 0.00001258
+/gps/hist/point 0.067 0.00000000
+
+/gps/hist/inter Spline
+
+/gps/number 1
+/run/beamOn 1000
