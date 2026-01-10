@@ -10,7 +10,8 @@
 int main(int argc, char** argv)
 {
 
-    auto* runManager = G4RunManagerFactory::CreateRunManager();
+    //auto* runManager = G4RunManagerFactory::CreateRunManager();
+     G4RunManager *runManager = new G4RunManager;
 
     runManager->SetUserInitialization(new DetectorConstruction());
     runManager->SetUserInitialization(new PhysicsList());
@@ -23,7 +24,7 @@ int main(int argc, char** argv)
     visManager->Initialize();
 
     G4UImanager* UImanager = G4UImanager::GetUIpointer();
-    //UImanager->ApplyCommand("/control/execute vis.mac"); 
+    UImanager->ApplyCommand("/control/execute vis.mac"); 
     UImanager->ApplyCommand("/control/execute run.mac");
 
     ui->SessionStart();
