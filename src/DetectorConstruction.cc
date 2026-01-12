@@ -49,39 +49,41 @@ G4VPhysicalVolume*DetectorConstruction::Construct()
 
     //玻璃
     G4Material* SiPM_Glass = nist->FindOrBuildMaterial("G4_Pyrex_Glass");
-
-     const G4int nEntries = 2;
-    G4double photonEnergy[nEntries] = { 1.5 * eV, 6.2 * eV }; // 覆盖可见光范围
+    const G4int nEntries = 2;
+    G4double photonEnergy[nEntries] = { 1.5 * eV, 6.2 * eV }; 
 
     //  空气光学属性 
     G4double rindexAir[nEntries] = { 1.0, 1.0 };
     G4MaterialPropertiesTable* mptAir = new G4MaterialPropertiesTable();
     mptAir->AddProperty("RINDEX", photonEnergy, rindexAir, nEntries,true);
-    WorldMat->SetMaterialPropertiesTable(mptAir); // 必须设置！
+    WorldMat->SetMaterialPropertiesTable(mptAir); 
 
     G4double rindexBGO[nEntries] = { 2.15, 2.15 };
-    G4double absLengthBGO[nEntries] = { 1.0 * m, 1.0 * m }; // 吸收长度，设长一点表示透明
-    G4double scintilFast[nEntries] = { 1.0, 1.0 }; // 发光能谱分布
+    G4double absLengthBGO[nEntries] = { 1.0 * m, 1.0 * m }; 
+    G4double scintilFast[nEntries] = { 1.0, 1.0 }; 
 
+    //BGO属性
     G4MaterialPropertiesTable* mptBGO = new G4MaterialPropertiesTable();
     mptBGO->AddProperty("RINDEX", photonEnergy, rindexBGO, nEntries, true);
     mptBGO->AddProperty("ABSORPTIONLENGTH", photonEnergy, absLengthBGO, nEntries, true);
     mptBGO->AddProperty("SCINTILLATIONCOMPONENT1", photonEnergy, scintilFast, nEntries, true);
     
-    mptBGO->AddConstProperty("SCINTILLATIONYIELD", 8200. / MeV); // 光产额
+    mptBGO->AddConstProperty("SCINTILLATIONYIELD", 8200. / MeV); 
     mptBGO->AddConstProperty("RESOLUTIONSCALE", 1.0);
-    mptBGO->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 300.0 * ns); // 时间常数
+    mptBGO->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 300.0 * ns); 
     mptBGO->AddConstProperty("SCINTILLATIONYIELD1", 1.0);      
 
     BGO->SetMaterialPropertiesTable(mptBGO);
 
-    G4double rindexGrease[nEntries] = { 1.47, 1.47 }; // 匹配层折射率
+    //光学硅脂属性
+    G4double rindexGrease[nEntries] = { 1.47, 1.47 }; 
     G4double absLengthGrease[nEntries] = { 5.0 * m, 5.0 * m };
     G4MaterialPropertiesTable* mptGrease = new G4MaterialPropertiesTable();
     mptGrease->AddProperty("RINDEX", photonEnergy, rindexGrease, nEntries, true);
     mptGrease->AddProperty("ABSORPTIONLENGTH", photonEnergy, absLengthGrease, nEntries, true);
     OpticalGrease->SetMaterialPropertiesTable(mptGrease);
 
+    //SIPM玻璃
     G4double rindexGlass[nEntries] = { 1.50, 1.50 };
     G4double absLengthGlass[nEntries] = { 5.0 * m, 5.0 * m };
     G4MaterialPropertiesTable* mptGlass = new G4MaterialPropertiesTable();
@@ -124,7 +126,7 @@ G4VPhysicalVolume*DetectorConstruction::Construct()
     //BGO
     auto SolidBGO =new G4Box ("BGO",bgoXY/2,bgoXY/2,bgoZ/2);
     auto LogicBGO =new G4LogicalVolume(SolidBGO,BGO,"BGO");
-     G4VisAttributes* bgoVis = new G4VisAttributes(G4Color(0.0, 1.0, 1.0, 0.4)); 
+    G4VisAttributes* bgoVis = new G4VisAttributes(G4Color(0.0, 1.0, 1.0, 0.4)); 
     bgoVis->SetForceSolid(true);
     LogicBGO->SetVisAttributes(bgoVis);
 
