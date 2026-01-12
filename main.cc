@@ -24,8 +24,8 @@ int main(int argc, char** argv)
     visManager->Initialize();
 
     G4UImanager* UImanager = G4UImanager::GetUIpointer();
-    UImanager->ApplyCommand("/control/execute vis.mac"); 
-    UImanager->ApplyCommand("/control/execute run.mac");
+    //UImanager->ApplyCommand("/control/execute vis.mac"); 
+    UImanager->ApplyCommand("/control/execute run1.mac");
 
     ui->SessionStart();
 
