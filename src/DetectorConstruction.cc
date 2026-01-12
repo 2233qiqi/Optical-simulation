@@ -53,13 +53,12 @@ G4VPhysicalVolume*DetectorConstruction::Construct()
      const G4int nEntries = 2;
     G4double photonEnergy[nEntries] = { 1.5 * eV, 6.2 * eV }; // 覆盖可见光范围
 
-    // --- 空气光学属性 ---
+    //  空气光学属性 
     G4double rindexAir[nEntries] = { 1.0, 1.0 };
     G4MaterialPropertiesTable* mptAir = new G4MaterialPropertiesTable();
     mptAir->AddProperty("RINDEX", photonEnergy, rindexAir, nEntries,true);
     WorldMat->SetMaterialPropertiesTable(mptAir); // 必须设置！
 
-    // --- BGO 光学属性 (发光关键) ---
     G4double rindexBGO[nEntries] = { 2.15, 2.15 };
     G4double absLengthBGO[nEntries] = { 1.0 * m, 1.0 * m }; // 吸收长度，设长一点表示透明
     G4double scintilFast[nEntries] = { 1.0, 1.0 }; // 发光能谱分布
@@ -69,7 +68,6 @@ G4VPhysicalVolume*DetectorConstruction::Construct()
     mptBGO->AddProperty("ABSORPTIONLENGTH", photonEnergy, absLengthBGO, nEntries, true);
     mptBGO->AddProperty("SCINTILLATIONCOMPONENT1", photonEnergy, scintilFast, nEntries, true);
     
-    // !!! 这两行决定了是否发光 !!!
     mptBGO->AddConstProperty("SCINTILLATIONYIELD", 8200. / MeV); // 光产额
     mptBGO->AddConstProperty("RESOLUTIONSCALE", 1.0);
     mptBGO->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 300.0 * ns); // 时间常数
@@ -77,7 +75,6 @@ G4VPhysicalVolume*DetectorConstruction::Construct()
 
     BGO->SetMaterialPropertiesTable(mptBGO);
 
-    // --- 硅脂光学属性 ---
     G4double rindexGrease[nEntries] = { 1.47, 1.47 }; // 匹配层折射率
     G4double absLengthGrease[nEntries] = { 5.0 * m, 5.0 * m };
     G4MaterialPropertiesTable* mptGrease = new G4MaterialPropertiesTable();
@@ -85,14 +82,12 @@ G4VPhysicalVolume*DetectorConstruction::Construct()
     mptGrease->AddProperty("ABSORPTIONLENGTH", photonEnergy, absLengthGrease, nEntries, true);
     OpticalGrease->SetMaterialPropertiesTable(mptGrease);
 
-    // --- 玻璃光学属性 ---
     G4double rindexGlass[nEntries] = { 1.50, 1.50 };
     G4double absLengthGlass[nEntries] = { 5.0 * m, 5.0 * m };
     G4MaterialPropertiesTable* mptGlass = new G4MaterialPropertiesTable();
     mptGlass->AddProperty("RINDEX", photonEnergy, rindexGlass, nEntries, true);
     mptGlass->AddProperty("ABSORPTIONLENGTH", photonEnergy, absLengthGlass, nEntries, true);
     SiPM_Glass->SetMaterialPropertiesTable(mptGlass);
-
 
     //参数定义
     const G4int nSipmX = 8;

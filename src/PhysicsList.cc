@@ -2,6 +2,7 @@
 #include "G4OpticalPhysics.hh"
 #include "G4EmStandardPhysics.hh"
 #include "G4SystemOfUnits.hh"
+#include "G4OpticalPhoton.hh"
 
 
 PhysicsList::PhysicsList() : G4VUserPhysicsList()
