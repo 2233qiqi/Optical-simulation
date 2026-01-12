@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/qiqi/geant4/Optica-simulation
+CMAKE_SOURCE_DIR = /home/qiqi/geant4/Optical-simulation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/qiqi/geant4/Optica-simulation/build
+CMAKE_BINARY_DIR = /home/qiqi/geant4/Optical-simulation/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -70,116 +70,116 @@ include CMakeFiles/main.dir/progress.make
 include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/main.cc.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/main.cc.o: /home/qiqi/geant4/Optica-simulation/main.cc
+CMakeFiles/main.dir/main.cc.o: /home/qiqi/geant4/Optical-simulation/main.cc
 CMakeFiles/main.dir/main.cc.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optica-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/main.cc.o -MF CMakeFiles/main.dir/main.cc.o.d -o CMakeFiles/main.dir/main.cc.o -c /home/qiqi/geant4/Optica-simulation/main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optical-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/main.cc.o -MF CMakeFiles/main.dir/main.cc.o.d -o CMakeFiles/main.dir/main.cc.o -c /home/qiqi/geant4/Optical-simulation/main.cc
 
 CMakeFiles/main.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optica-simulation/main.cc > CMakeFiles/main.dir/main.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optical-simulation/main.cc > CMakeFiles/main.dir/main.cc.i
 
 CMakeFiles/main.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optica-simulation/main.cc -o CMakeFiles/main.dir/main.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optical-simulation/main.cc -o CMakeFiles/main.dir/main.cc.s
 
 CMakeFiles/main.dir/src/ActionInitialization.cc.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/ActionInitialization.cc.o: /home/qiqi/geant4/Optica-simulation/src/ActionInitialization.cc
+CMakeFiles/main.dir/src/ActionInitialization.cc.o: /home/qiqi/geant4/Optical-simulation/src/ActionInitialization.cc
 CMakeFiles/main.dir/src/ActionInitialization.cc.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optica-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/ActionInitialization.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/ActionInitialization.cc.o -MF CMakeFiles/main.dir/src/ActionInitialization.cc.o.d -o CMakeFiles/main.dir/src/ActionInitialization.cc.o -c /home/qiqi/geant4/Optica-simulation/src/ActionInitialization.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optical-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/ActionInitialization.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/ActionInitialization.cc.o -MF CMakeFiles/main.dir/src/ActionInitialization.cc.o.d -o CMakeFiles/main.dir/src/ActionInitialization.cc.o -c /home/qiqi/geant4/Optical-simulation/src/ActionInitialization.cc
 
 CMakeFiles/main.dir/src/ActionInitialization.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/ActionInitialization.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optica-simulation/src/ActionInitialization.cc > CMakeFiles/main.dir/src/ActionInitialization.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optical-simulation/src/ActionInitialization.cc > CMakeFiles/main.dir/src/ActionInitialization.cc.i
 
 CMakeFiles/main.dir/src/ActionInitialization.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/ActionInitialization.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optica-simulation/src/ActionInitialization.cc -o CMakeFiles/main.dir/src/ActionInitialization.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optical-simulation/src/ActionInitialization.cc -o CMakeFiles/main.dir/src/ActionInitialization.cc.s
 
 CMakeFiles/main.dir/src/DetectorConstruction.cc.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/DetectorConstruction.cc.o: /home/qiqi/geant4/Optica-simulation/src/DetectorConstruction.cc
+CMakeFiles/main.dir/src/DetectorConstruction.cc.o: /home/qiqi/geant4/Optical-simulation/src/DetectorConstruction.cc
 CMakeFiles/main.dir/src/DetectorConstruction.cc.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optica-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/DetectorConstruction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/DetectorConstruction.cc.o -MF CMakeFiles/main.dir/src/DetectorConstruction.cc.o.d -o CMakeFiles/main.dir/src/DetectorConstruction.cc.o -c /home/qiqi/geant4/Optica-simulation/src/DetectorConstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optical-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/DetectorConstruction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/DetectorConstruction.cc.o -MF CMakeFiles/main.dir/src/DetectorConstruction.cc.o.d -o CMakeFiles/main.dir/src/DetectorConstruction.cc.o -c /home/qiqi/geant4/Optical-simulation/src/DetectorConstruction.cc
 
 CMakeFiles/main.dir/src/DetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/DetectorConstruction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optica-simulation/src/DetectorConstruction.cc > CMakeFiles/main.dir/src/DetectorConstruction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optical-simulation/src/DetectorConstruction.cc > CMakeFiles/main.dir/src/DetectorConstruction.cc.i
 
 CMakeFiles/main.dir/src/DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/DetectorConstruction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optica-simulation/src/DetectorConstruction.cc -o CMakeFiles/main.dir/src/DetectorConstruction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optical-simulation/src/DetectorConstruction.cc -o CMakeFiles/main.dir/src/DetectorConstruction.cc.s
 
 CMakeFiles/main.dir/src/EventAction.cc.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/EventAction.cc.o: /home/qiqi/geant4/Optica-simulation/src/EventAction.cc
+CMakeFiles/main.dir/src/EventAction.cc.o: /home/qiqi/geant4/Optical-simulation/src/EventAction.cc
 CMakeFiles/main.dir/src/EventAction.cc.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optica-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/EventAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/EventAction.cc.o -MF CMakeFiles/main.dir/src/EventAction.cc.o.d -o CMakeFiles/main.dir/src/EventAction.cc.o -c /home/qiqi/geant4/Optica-simulation/src/EventAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optical-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/EventAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/EventAction.cc.o -MF CMakeFiles/main.dir/src/EventAction.cc.o.d -o CMakeFiles/main.dir/src/EventAction.cc.o -c /home/qiqi/geant4/Optical-simulation/src/EventAction.cc
 
 CMakeFiles/main.dir/src/EventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/EventAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optica-simulation/src/EventAction.cc > CMakeFiles/main.dir/src/EventAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optical-simulation/src/EventAction.cc > CMakeFiles/main.dir/src/EventAction.cc.i
 
 CMakeFiles/main.dir/src/EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/EventAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optica-simulation/src/EventAction.cc -o CMakeFiles/main.dir/src/EventAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optical-simulation/src/EventAction.cc -o CMakeFiles/main.dir/src/EventAction.cc.s
 
 CMakeFiles/main.dir/src/PhysicsList.cc.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/PhysicsList.cc.o: /home/qiqi/geant4/Optica-simulation/src/PhysicsList.cc
+CMakeFiles/main.dir/src/PhysicsList.cc.o: /home/qiqi/geant4/Optical-simulation/src/PhysicsList.cc
 CMakeFiles/main.dir/src/PhysicsList.cc.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optica-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/PhysicsList.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/PhysicsList.cc.o -MF CMakeFiles/main.dir/src/PhysicsList.cc.o.d -o CMakeFiles/main.dir/src/PhysicsList.cc.o -c /home/qiqi/geant4/Optica-simulation/src/PhysicsList.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optical-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/PhysicsList.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/PhysicsList.cc.o -MF CMakeFiles/main.dir/src/PhysicsList.cc.o.d -o CMakeFiles/main.dir/src/PhysicsList.cc.o -c /home/qiqi/geant4/Optical-simulation/src/PhysicsList.cc
 
 CMakeFiles/main.dir/src/PhysicsList.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/PhysicsList.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optica-simulation/src/PhysicsList.cc > CMakeFiles/main.dir/src/PhysicsList.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optical-simulation/src/PhysicsList.cc > CMakeFiles/main.dir/src/PhysicsList.cc.i
 
 CMakeFiles/main.dir/src/PhysicsList.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/PhysicsList.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optica-simulation/src/PhysicsList.cc -o CMakeFiles/main.dir/src/PhysicsList.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optical-simulation/src/PhysicsList.cc -o CMakeFiles/main.dir/src/PhysicsList.cc.s
 
 CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o: /home/qiqi/geant4/Optica-simulation/src/PrimaryGeneratorAction.cc
+CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o: /home/qiqi/geant4/Optical-simulation/src/PrimaryGeneratorAction.cc
 CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optica-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o -c /home/qiqi/geant4/Optica-simulation/src/PrimaryGeneratorAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optical-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.o -c /home/qiqi/geant4/Optical-simulation/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optica-simulation/src/PrimaryGeneratorAction.cc > CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optical-simulation/src/PrimaryGeneratorAction.cc > CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.i
 
 CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optica-simulation/src/PrimaryGeneratorAction.cc -o CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optical-simulation/src/PrimaryGeneratorAction.cc -o CMakeFiles/main.dir/src/PrimaryGeneratorAction.cc.s
 
 CMakeFiles/main.dir/src/RunAction.cc.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/RunAction.cc.o: /home/qiqi/geant4/Optica-simulation/src/RunAction.cc
+CMakeFiles/main.dir/src/RunAction.cc.o: /home/qiqi/geant4/Optical-simulation/src/RunAction.cc
 CMakeFiles/main.dir/src/RunAction.cc.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optica-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/RunAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/RunAction.cc.o -MF CMakeFiles/main.dir/src/RunAction.cc.o.d -o CMakeFiles/main.dir/src/RunAction.cc.o -c /home/qiqi/geant4/Optica-simulation/src/RunAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optical-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/RunAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/RunAction.cc.o -MF CMakeFiles/main.dir/src/RunAction.cc.o.d -o CMakeFiles/main.dir/src/RunAction.cc.o -c /home/qiqi/geant4/Optical-simulation/src/RunAction.cc
 
 CMakeFiles/main.dir/src/RunAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/RunAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optica-simulation/src/RunAction.cc > CMakeFiles/main.dir/src/RunAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optical-simulation/src/RunAction.cc > CMakeFiles/main.dir/src/RunAction.cc.i
 
 CMakeFiles/main.dir/src/RunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/RunAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optica-simulation/src/RunAction.cc -o CMakeFiles/main.dir/src/RunAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optical-simulation/src/RunAction.cc -o CMakeFiles/main.dir/src/RunAction.cc.s
 
 CMakeFiles/main.dir/src/SteppingAction.cc.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/SteppingAction.cc.o: /home/qiqi/geant4/Optica-simulation/src/SteppingAction.cc
+CMakeFiles/main.dir/src/SteppingAction.cc.o: /home/qiqi/geant4/Optical-simulation/src/SteppingAction.cc
 CMakeFiles/main.dir/src/SteppingAction.cc.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optica-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/SteppingAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/SteppingAction.cc.o -MF CMakeFiles/main.dir/src/SteppingAction.cc.o.d -o CMakeFiles/main.dir/src/SteppingAction.cc.o -c /home/qiqi/geant4/Optica-simulation/src/SteppingAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/qiqi/geant4/Optical-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/SteppingAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/SteppingAction.cc.o -MF CMakeFiles/main.dir/src/SteppingAction.cc.o.d -o CMakeFiles/main.dir/src/SteppingAction.cc.o -c /home/qiqi/geant4/Optical-simulation/src/SteppingAction.cc
 
 CMakeFiles/main.dir/src/SteppingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/SteppingAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optica-simulation/src/SteppingAction.cc > CMakeFiles/main.dir/src/SteppingAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/qiqi/geant4/Optical-simulation/src/SteppingAction.cc > CMakeFiles/main.dir/src/SteppingAction.cc.i
 
 CMakeFiles/main.dir/src/SteppingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/SteppingAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optica-simulation/src/SteppingAction.cc -o CMakeFiles/main.dir/src/SteppingAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/qiqi/geant4/Optical-simulation/src/SteppingAction.cc -o CMakeFiles/main.dir/src/SteppingAction.cc.s
 
 # Object files for target main
 main_OBJECTS = \
@@ -243,7 +243,7 @@ main: /usr/local/lib/libG4global.so
 main: /usr/local/lib/libG4clhep.so
 main: /usr/local/lib/libG4ptl.so.3.0.0
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/qiqi/geant4/Optica-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/qiqi/geant4/Optical-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -255,6 +255,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /home/qiqi/geant4/Optica-simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qiqi/geant4/Optica-simulation /home/qiqi/geant4/Optica-simulation /home/qiqi/geant4/Optica-simulation/build /home/qiqi/geant4/Optica-simulation/build /home/qiqi/geant4/Optica-simulation/build/CMakeFiles/main.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/qiqi/geant4/Optical-simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/qiqi/geant4/Optical-simulation /home/qiqi/geant4/Optical-simulation /home/qiqi/geant4/Optical-simulation/build /home/qiqi/geant4/Optical-simulation/build /home/qiqi/geant4/Optical-simulation/build/CMakeFiles/main.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/main.dir/depend
 

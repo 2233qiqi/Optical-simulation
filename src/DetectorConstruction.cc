@@ -90,6 +90,7 @@ G4VPhysicalVolume*DetectorConstruction::Construct()
     mptGlass->AddProperty("RINDEX", photonEnergy, rindexGlass, nEntries, true);
     mptGlass->AddProperty("ABSORPTIONLENGTH", photonEnergy, absLengthGlass, nEntries, true);
     SiPM_Glass->SetMaterialPropertiesTable(mptGlass);
+    
 
     //参数定义
     const G4int nSipmX = 8;

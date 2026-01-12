@@ -10,8 +10,8 @@
 int main(int argc, char** argv)
 {
 
-    auto* runManager = G4RunManagerFactory::CreateRunManager();
-    //G4RunManager *runManager = new G4RunManager;
+    //auto* runManager = G4RunManagerFactory::CreateRunManager();
+    G4RunManager *runManager = new G4RunManager;
 
     runManager->SetUserInitialization(new DetectorConstruction());
     runManager->SetUserInitialization(new PhysicsList());
