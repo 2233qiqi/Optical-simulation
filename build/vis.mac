@@ -31,8 +31,7 @@
 
 /vis/scene/add/scale 0.005 mm # 比例尺
 
-/vis/geometry/set/visibility LogicWorld 0 false
-
+/vis/geometry/set/visibility LogicWorld 0 true
 
 /vis/viewer/set/style surface
 /vis/viewer/set/hiddenMarker true

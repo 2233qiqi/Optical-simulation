@@ -1,163 +1,97 @@
 #include "DetectorConstruction.hh"
-
 #include "G4Material.hh"
 #include "G4NistManager.hh"
-#include "G4MaterialPropertiesTable.hh"
-#include "G4LogicalSkinSurface.hh"
-#include "G4OpticalSurface.hh"
-
 #include "G4Box.hh"
-#include "G4PVPlacement.hh"
 #include "G4LogicalVolume.hh"
-
+#include "G4PVPlacement.hh"
 #include "G4SystemOfUnits.hh"
-#include "G4PhysicalConstants.hh"
 #include "G4VisAttributes.hh"
-#include "G4Color.hh"
 
+// 构造函数
+DetectorConstruction::DetectorConstruction() : G4VUserDetectorConstruction() {}
 
-DetectorConstruction::DetectorConstruction() 
-{
+// 析构函数
+DetectorConstruction::~DetectorConstruction() {}
 
-}
-DetectorConstruction::~DetectorConstruction(){
-
-}
-
-
-G4VPhysicalVolume*DetectorConstruction::Construct()
-{
-   
-    G4bool checkOverlaps = true;
-
+G4VPhysicalVolume* DetectorConstruction::Construct() {
+    // 1. 获取材料管理器
+    G4NistManager* nist = G4NistManager::Instance();
+    G4Material* world_mat = nist->FindOrBuildMaterial("G4_AIR");
+    G4Material* bgo_mat   = nist->FindOrBuildMaterial("G4_BGO");
     
-    //world材料
-    G4NistManager *nist = G4NistManager::Instance();
-    G4Material *WorldMat = nist->FindOrBuildMaterial("G4_AIR");
+    // 定义钨铜合金 (W-Cu: 80% W, 20% Cu, 密度约 15.0 g/cm3)
+    G4Material* wcu_mat = new G4Material("WCu_Alloy", 15.0*g/cm3, 2);
+    wcu_mat->AddMaterial(nist->FindOrBuildMaterial("G4_W"), 80*perCent);
+    wcu_mat->AddMaterial(nist->FindOrBuildMaterial("G4_Cu"), 20*perCent);
 
-    //BGO材料
-    G4Material *BGO=new G4Material("BGO", 7.13*g/cm3, 3);
-    BGO ->AddElement(nist->FindOrBuildElement("Bi"), 4);
-    BGO ->AddElement(nist->FindOrBuildElement("Ge"), 3);
-    BGO ->AddElement(nist ->FindOrBuildElement("O"), 12);
-    
-    //硅脂材料
-    G4Material* OpticalGrease = new G4Material( "OpticalGrease",0.97*g/cm3, 3);
-    OpticalGrease->AddElement(nist->FindOrBuildElement("Si"), 1);
-    OpticalGrease->AddElement(nist->FindOrBuildElement("O"), 1);
-    OpticalGrease->AddElement(nist->FindOrBuildElement("C"), 2);
+    // 2. 世界逻辑体
+    G4double world_size = 2.5 * m;
+    G4Box* solidWorld = new G4Box("World", world_size, world_size, world_size);
+    G4LogicalVolume* logicWorld = new G4LogicalVolume(solidWorld, world_mat, "World");
+    G4VPhysicalVolume* physWorld = new G4PVPlacement(0, G4ThreeVector(), logicWorld, "World", 0, false, 0);
 
-    //玻璃
-    G4Material* SiPM_Glass = nist->FindOrBuildMaterial("G4_Pyrex_Glass");
-    const G4int nEntries = 2;
-    G4double photonEnergy[nEntries] = { 1.5 * eV, 6.2 * eV }; 
+    // --- 3. 探测器部分 (19x19 BGO Array) ---
+    G4double cry_xy = 2.4 * mm;
+    G4double cry_z  = 10.0 * mm;
+    G4Box* solidBGO = new G4Box("BGOCrystal", cry_xy/2, cry_xy/2, cry_z/2);
+    G4LogicalVolume* logicBGO = new G4LogicalVolume(solidBGO, bgo_mat, "BGOCrystal");
 
-    //  空气光学属性 
-    G4double rindexAir[nEntries] = { 1.0, 1.0 };
-    G4MaterialPropertiesTable* mptAir = new G4MaterialPropertiesTable();
-    mptAir->AddProperty("RINDEX", photonEnergy, rindexAir, nEntries,true);
-    WorldMat->SetMaterialPropertiesTable(mptAir); 
-
-    G4double rindexBGO[nEntries] = { 2.15, 2.15 };
-    G4double absLengthBGO[nEntries] = { 1.0 * m, 1.0 * m }; 
-    G4double scintilFast[nEntries] = { 1.0, 1.0 }; 
-
-    //BGO属性
-    G4MaterialPropertiesTable* mptBGO = new G4MaterialPropertiesTable();
-    mptBGO->AddProperty("RINDEX", photonEnergy, rindexBGO, nEntries, true);
-    mptBGO->AddProperty("ABSORPTIONLENGTH", photonEnergy, absLengthBGO, nEntries, true);
-    mptBGO->AddProperty("SCINTILLATIONCOMPONENT1", photonEnergy, scintilFast, nEntries, true);
-    
-    mptBGO->AddConstProperty("SCINTILLATIONYIELD", 8200. / MeV); 
-    mptBGO->AddConstProperty("RESOLUTIONSCALE", 1.0);
-    mptBGO->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 300.0 * ns); 
-    mptBGO->AddConstProperty("SCINTILLATIONYIELD1", 1.0);      
-
-    BGO->SetMaterialPropertiesTable(mptBGO);
-
-    //光学硅脂属性
-    G4double rindexGrease[nEntries] = { 1.47, 1.47 }; 
-    G4double absLengthGrease[nEntries] = { 5.0 * m, 5.0 * m };
-    G4MaterialPropertiesTable* mptGrease = new G4MaterialPropertiesTable();
-    mptGrease->AddProperty("RINDEX", photonEnergy, rindexGrease, nEntries, true);
-    mptGrease->AddProperty("ABSORPTIONLENGTH", photonEnergy, absLengthGrease, nEntries, true);
-    OpticalGrease->SetMaterialPropertiesTable(mptGrease);
-
-    //SIPM玻璃
-    G4double rindexGlass[nEntries] = { 1.50, 1.50 };
-    G4double absLengthGlass[nEntries] = { 5.0 * m, 5.0 * m };
-    G4MaterialPropertiesTable* mptGlass = new G4MaterialPropertiesTable();
-    mptGlass->AddProperty("RINDEX", photonEnergy, rindexGlass, nEntries, true);
-    mptGlass->AddProperty("ABSORPTIONLENGTH", photonEnergy, absLengthGlass, nEntries, true);
-    SiPM_Glass->SetMaterialPropertiesTable(mptGlass);
-    
-
-    //参数定义
-    const G4int nSipmX = 8;
-    const G4int nSipmY = 8;
-
-    const G4double sipmXY = 6.13*mm;
-    const G4double sipmZ  = 0.64*mm;
-
-    const G4double greaseZ = 0.16*mm;
-
-    const G4double bgoXY = 6.0*mm;
-    const G4double bgoZ  = 50.0*mm;
-
-    //世界
-    G4double WordSize = 200.*mm;
-    auto SolidWord =new G4Box("World",WordSize/2,WordSize/2,WordSize/2);
-    auto LogicWorld =new G4LogicalVolume(SolidWord,WorldMat,"World");
-    G4VPhysicalVolume *PhysWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), LogicWorld, "PhysWorld", 0, false, 0, checkOverlaps);
-    LogicWorld->SetVisAttributes(G4VisAttributes::GetInvisible()); 
-
-    //SiPM
-    auto SolidSiPM =new G4Box ("SiPM",sipmXY/2,sipmXY/2,sipmZ/2);
-    auto logicSiPM =new G4LogicalVolume(SolidSiPM,SiPM_Glass ,"SiPM");
-    G4VisAttributes* sipmVis = new G4VisAttributes(G4Color(1.0, 1.0, 0.0)); 
-    sipmVis->SetForceSolid(true); 
-    logicSiPM->SetVisAttributes(sipmVis);
-
-    //硅脂
-    auto SolidGrease =new G4Box("Grease",sipmXY/2,sipmXY/2,greaseZ/2);
-    auto LogicGrease =new G4LogicalVolume(SolidGrease,OpticalGrease,"Grease");
-    G4VisAttributes* greaseVis = new G4VisAttributes(G4Color(1.0, 0.0, 0.0)); 
-    LogicGrease->SetVisAttributes(greaseVis);
-
-    //BGO
-    auto SolidBGO =new G4Box ("BGO",bgoXY/2,bgoXY/2,bgoZ/2);
-    auto LogicBGO =new G4LogicalVolume(SolidBGO,BGO,"BGO");
-    G4VisAttributes* bgoVis = new G4VisAttributes(G4Color(0.0, 1.0, 1.0, 0.4)); 
-    bgoVis->SetForceSolid(true);
-    LogicBGO->SetVisAttributes(bgoVis);
-
-    //位置
-    G4double greaseZpos = 0.0;
-    G4double sipmZpos   = - (greaseZ/2 + sipmZ/2); 
-    G4double bgoZpos    =   (greaseZ/2 + bgoZ/2);  
-
-    G4double arraySizeX = nSipmX * sipmXY;
-    G4double arraySizeY = nSipmY * sipmXY;
-
-    G4int copyNo = 0; 
-
-    for (G4int ix = 0; ix < nSipmX; ix++)
-    {
-        for (G4int iy = 0; iy < nSipmY; iy++)
-        {
-            G4double x = (ix + 0.5)*sipmXY - arraySizeX/2;
-            G4double y = (iy + 0.5)*sipmXY - arraySizeY/2;
-            G4ThreeVector pos(x, y, 0); 
-
-            auto PhySiPM = new G4PVPlacement(nullptr, G4ThreeVector(x, y, sipmZpos), logicSiPM, "SiPM", LogicWorld, false, copyNo,checkOverlaps);
-
-            auto PhyGrease = new G4PVPlacement(nullptr, G4ThreeVector(x, y, greaseZpos), LogicGrease, "Grease", LogicWorld,  false, copyNo, checkOverlaps);
-
-            auto PhyBGO = new G4PVPlacement(nullptr, G4ThreeVector(x, y, bgoZpos), LogicBGO, "BGO", LogicWorld, false, copyNo, checkOverlaps);
-            
-            copyNo++; 
+    for (G4int i = 0; i < 19; i++) {
+        for (G4int j = 0; j < 19; j++) {
+            G4double x = (i - 9) * cry_xy;
+            G4double y = (j - 9) * cry_xy;
+            new G4PVPlacement(0, G4ThreeVector(x, y, 0), logicBGO, "BGOCrystal", logicWorld, false, i * 19 + j, true);
         }
     }
-    return PhysWorld;
-}
 
+    // --- 4. MURA 准直器部分 (37x37 Mask) ---
+    G4int p = 19; // MURA 参数
+    G4double mask_unit_xy = 2.4 * mm;
+    G4double mask_thickness = 8.0 * mm;
+    G4double MDD = 59.0 * mm; // 准直器到探测器的距离
+    
+    // 计算 MURA 基础图案 (19x19)
+    G4int mura19[19];
+    mura19[0] = 0; // MURA 定义: A_0 = 0
+    for(int i=1; i<p; i++) {
+        bool is_residue = false;
+        for(int k=0; k<p; k++) {
+            if((k*k) % p == i) { is_residue = true; break; }
+        }
+        mura19[i] = is_residue ? 1 : 0;
+    }
+
+    // 放置准直器单元 (37x37)
+    G4Box* solidMaskUnit = new G4Box("MaskUnit", mask_unit_xy/2, mask_unit_xy/2, mask_thickness/2);
+    G4LogicalVolume* logicMaskUnit = new G4LogicalVolume(solidMaskUnit, wcu_mat, "MaskUnit");
+
+    G4double mask_z_pos = (cry_z / 2.0) + MDD + (mask_thickness / 2.0);
+
+    for (G4int i = 0; i < 37; i++) {
+        for (G4int j = 0; j < 37; j++) {
+            // MURA 二维逻辑: A_ij = 1 if (A_i + A_j) mod 2 == 0, else 0 (这里 1 为开孔，0 为遮挡)
+            // 循环嵌套扩展: M_ij = A_(i mod p, j mod p)
+            G4int mi = i % p;
+            G4int mj = j % p;
+            
+            G4int val;
+            if (mi == 0) val = 0;
+            else if (mj == 0) val = 1;
+            else val = (mura19[mi] + mura19[mj]) % 2 == 0 ? 1 : 0;
+
+            // 论文中：1 是孔，0 是调制单元(钨铜)。所以我们只放置 val == 0 的块。
+            if (val == 0) {
+                G4double x = (i - 18) * mask_unit_xy;
+                G4double y = (j - 18) * mask_unit_xy;
+                new G4PVPlacement(0, G4ThreeVector(x, y, mask_z_pos), logicMaskUnit, "MaskUnit", logicWorld, false, i * 37 + j, true);
+            }
+        }
+    }
+
+    // 可视化设置
+    logicBGO->SetVisAttributes(new G4VisAttributes(G4Colour(0.0, 1.0, 1.0))); // 青色探测器
+    logicMaskUnit->SetVisAttributes(new G4VisAttributes(G4Colour(0.5, 0.5, 0.5))); // 灰色准直器
+    logicWorld->SetVisAttributes(new G4VisAttributes(G4Color(1.0,1.0,1.0,0.005)));
+
+    return physWorld;
+}
